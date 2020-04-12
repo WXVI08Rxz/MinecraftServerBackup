@@ -1,0 +1,86 @@
+---- Minecraft Crash Report ----
+
+WARNING: coremods are present:
+  Inventory Tweaks Coremod (InventoryTweaks-1.63.jar)
+  LoadingPlugin (Xaeros_Minimap_20.7.1_Forge_1.12.jar)
+Contact their authors BEFORE contacting forge
+
+// My bad.
+
+Time: 4/10/20 10:43 PM
+Description: Exception ticking world
+
+java.util.ConcurrentModificationException
+	at java.util.HashMap$HashIterator.remove(HashMap.java:1459)
+	at net.minecraft.world.gen.ChunkProviderServer.func_73156_b(ChunkProviderServer.java:262)
+	at net.minecraft.world.WorldServer.func_72835_b(WorldServer.java:207)
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:756)
+	at net.minecraft.server.dedicated.DedicatedServer.func_71190_q(DedicatedServer.java:397)
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:668)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:526)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at java.util.HashMap$HashIterator.remove(HashMap.java:1459)
+	at net.minecraft.world.gen.ChunkProviderServer.func_73156_b(ChunkProviderServer.java:262)
+	at net.minecraft.world.WorldServer.func_72835_b(WorldServer.java:207)
+
+-- Affected level --
+Details:
+	Level name: world
+	All players: 0 total; []
+	Chunk stats: ServerChunkCache: 99 Drop: 100
+	Level seed: 3111926912197026825
+	Level generator: ID 00 - default, ver 1. Features enabled: false
+	Level generator options: 
+	Level spawn location: World: (0,0,0), Chunk: (at 0,0,0 in 0,0; contains blocks 0,0,0 to 15,255,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Level time: 0 game time, 0 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: survival (ID 0). Hardcore: false. Cheats: false
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:756)
+	at net.minecraft.server.dedicated.DedicatedServer.func_71190_q(DedicatedServer.java:397)
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:668)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:526)
+	at java.lang.Thread.run(Thread.java:748)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Linux (aarch64) version 5.3.0-1022-raspi2
+	Java Version: 1.8.0_242, Private Build
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Private Build
+	Memory: 254234800 bytes (242 MB) / 456130560 bytes (435 MB) up to 883949568 bytes (843 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 37
+	FML: MCP 9.42 Powered by Forge 14.23.5.2847 7 mods loaded, 7 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State  | ID                | Version                  | Source                                        | Signature                                |
+	|:------ |:----------------- |:------------------------ |:--------------------------------------------- |:---------------------------------------- |
+	| LCHIJA | minecraft         | 1.12.2                   | minecraft.jar                                 | None                                     |
+	| LCHIJA | mcp               | 9.42                     | minecraft.jar                                 | None                                     |
+	| LCHIJA | FML               | 8.0.99.99                | forge-1.12.2-14.23.5.2847-universal.jar       | None                                     |
+	| LCHIJA | forge             | 14.23.5.2847             | forge-1.12.2-14.23.5.2847-universal.jar       | None                                     |
+	| LCHIJA | xaerominimap_core | 1.12.2-1.0               | minecraft.jar                                 | None                                     |
+	| LCHIJA | inventorytweaks   | 1.63+release.109.220f184 | InventoryTweaks-1.63.jar                      | 55d2cd4f5f0961410bf7b91ef6c6bf00a766dcbe |
+	| LCHIJA | twilightforest    | 3.10.1013                | twilightforest-1.12.2-3.10.1013-universal.jar | None                                     |
+
+	Loaded coremods (and transformers): 
+Inventory Tweaks Coremod (InventoryTweaks-1.63.jar)
+  invtweaks.forge.asm.ContainerTransformer
+LoadingPlugin (Xaeros_Minimap_20.7.1_Forge_1.12.jar)
+  xaero.common.core.transformer.ChunkTransformer
+  xaero.common.core.transformer.NetHandlerPlayClientTransformer
+	Profiler Position: N/A (disabled)
+	Player Count: 0 / 20; []
+	Is Modded: Definitely; Server brand changed to 'fml,forge'
+	Type: Dedicated Server (map_server.txt)

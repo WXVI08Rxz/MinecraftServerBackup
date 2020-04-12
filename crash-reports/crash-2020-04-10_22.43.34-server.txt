@@ -1,0 +1,270 @@
+---- Minecraft Crash Report ----
+
+WARNING: coremods are present:
+  Inventory Tweaks Coremod (InventoryTweaks-1.63.jar)
+  LoadingPlugin (Xaeros_Minimap_20.7.1_Forge_1.12.jar)
+Contact their authors BEFORE contacting forge
+
+// My bad.
+
+Time: 4/10/20 10:43 PM
+Description: Watching Server
+
+java.lang.Error: ServerHangWatchdog detected that a single server tick took 60.00 seconds (should be max 0.05)
+	at net.minecraft.world.World.func_175648_a(World.java:250)
+	at net.minecraft.world.World.func_180500_c(World.java:2860)
+	at net.minecraft.world.chunk.Chunk.func_76609_d(Chunk.java:339)
+	at net.minecraft.world.chunk.Chunk.func_76599_g(Chunk.java:325)
+	at net.minecraft.world.chunk.Chunk.func_150803_c(Chunk.java:297)
+	at net.minecraft.world.chunk.Chunk.func_177441_y(Chunk.java:1344)
+	at net.minecraft.world.chunk.Chunk.func_150809_p(Chunk.java:1327)
+	at net.minecraft.world.chunk.Chunk.func_150804_b(Chunk.java:1071)
+	at net.minecraft.world.WorldServer.func_147456_g(WorldServer.java:400)
+	at net.minecraft.world.WorldServer.func_72835_b(WorldServer.java:225)
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:756)
+	at net.minecraft.server.dedicated.DedicatedServer.func_71190_q(DedicatedServer.java:397)
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:668)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:526)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server Watchdog
+Stacktrace:
+	at net.minecraft.world.World.func_175648_a(World.java:250)
+	at net.minecraft.world.World.func_180500_c(World.java:2860)
+	at net.minecraft.world.chunk.Chunk.func_76609_d(Chunk.java:339)
+	at net.minecraft.world.chunk.Chunk.func_76599_g(Chunk.java:325)
+	at net.minecraft.world.chunk.Chunk.func_150803_c(Chunk.java:297)
+	at net.minecraft.world.chunk.Chunk.func_177441_y(Chunk.java:1344)
+	at net.minecraft.world.chunk.Chunk.func_150809_p(Chunk.java:1327)
+	at net.minecraft.world.chunk.Chunk.func_150804_b(Chunk.java:1071)
+	at net.minecraft.world.WorldServer.func_147456_g(WorldServer.java:400)
+	at net.minecraft.world.WorldServer.func_72835_b(WorldServer.java:225)
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:756)
+	at net.minecraft.server.dedicated.DedicatedServer.func_71190_q(DedicatedServer.java:397)
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:668)
+
+-- Thread Dump --
+Details:
+	Threads: "Netty Server IO #5" Id=38 RUNNABLE (in native)
+	at sun.nio.ch.EPollArrayWrapper.epollWait(Native Method)
+	at sun.nio.ch.EPollArrayWrapper.poll(EPollArrayWrapper.java:269)
+	at sun.nio.ch.EPollSelectorImpl.doSelect(EPollSelectorImpl.java:93)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:86)
+	-  locked io.netty.channel.nio.SelectedSelectionKeySet@70d9195a
+	-  locked java.util.Collections$UnmodifiableSet@7e1ef931
+	-  locked sun.nio.ch.EPollSelectorImpl@7a21722a
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:97)
+	at io.netty.channel.nio.SelectedSelectionKeySetSelector.select(SelectedSelectionKeySetSelector.java:62)
+	at io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:732)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:388)
+	...
+
+
+"Netty Server IO #4" Id=37 RUNNABLE (in native)
+	at sun.nio.ch.EPollArrayWrapper.epollWait(Native Method)
+	at sun.nio.ch.EPollArrayWrapper.poll(EPollArrayWrapper.java:269)
+	at sun.nio.ch.EPollSelectorImpl.doSelect(EPollSelectorImpl.java:93)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:86)
+	-  locked io.netty.channel.nio.SelectedSelectionKeySet@3f23f30a
+	-  locked java.util.Collections$UnmodifiableSet@7082e7d
+	-  locked sun.nio.ch.EPollSelectorImpl@e5688dc
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:97)
+	at io.netty.channel.nio.SelectedSelectionKeySetSelector.select(SelectedSelectionKeySetSelector.java:62)
+	at io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:732)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:388)
+	...
+
+
+"Netty Server IO #3" Id=36 RUNNABLE (in native)
+	at sun.nio.ch.EPollArrayWrapper.epollWait(Native Method)
+	at sun.nio.ch.EPollArrayWrapper.poll(EPollArrayWrapper.java:269)
+	at sun.nio.ch.EPollSelectorImpl.doSelect(EPollSelectorImpl.java:93)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:86)
+	-  locked io.netty.channel.nio.SelectedSelectionKeySet@7f970b1e
+	-  locked java.util.Collections$UnmodifiableSet@5f0c0c45
+	-  locked sun.nio.ch.EPollSelectorImpl@1931aa1f
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:97)
+	at io.netty.channel.nio.SelectedSelectionKeySetSelector.select(SelectedSelectionKeySetSelector.java:62)
+	at io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:732)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:388)
+	...
+
+
+"Netty Server IO #2" Id=32 RUNNABLE
+	at sun.nio.ch.EPollArrayWrapper.epollWait(Native Method)
+	at sun.nio.ch.EPollArrayWrapper.poll(EPollArrayWrapper.java:269)
+	at sun.nio.ch.EPollSelectorImpl.doSelect(EPollSelectorImpl.java:93)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:86)
+	-  locked io.netty.channel.nio.SelectedSelectionKeySet@231bc18d
+	-  locked java.util.Collections$UnmodifiableSet@6493e10b
+	-  locked sun.nio.ch.EPollSelectorImpl@5b42b7f8
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:97)
+	at io.netty.channel.nio.SelectedSelectionKeySetSelector.select(SelectedSelectionKeySetSelector.java:62)
+	at io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:732)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:388)
+	...
+
+
+"threadDeathWatcher-2-1" Id=31 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at io.netty.util.ThreadDeathWatcher$Watcher.run(ThreadDeathWatcher.java:152)
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:144)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+"Netty Server IO #1" Id=30 RUNNABLE
+	at sun.nio.ch.EPollArrayWrapper.epollWait(Native Method)
+	at sun.nio.ch.EPollArrayWrapper.poll(EPollArrayWrapper.java:269)
+	at sun.nio.ch.EPollSelectorImpl.doSelect(EPollSelectorImpl.java:93)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:86)
+	-  locked io.netty.channel.nio.SelectedSelectionKeySet@4f378fdd
+	-  locked java.util.Collections$UnmodifiableSet@325d381f
+	-  locked sun.nio.ch.EPollSelectorImpl@49bd1ce6
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:97)
+	at io.netty.channel.nio.SelectedSelectionKeySetSelector.select(SelectedSelectionKeySetSelector.java:62)
+	at io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:732)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:388)
+	...
+
+
+"File IO Thread" Id=29 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at net.minecraft.world.storage.ThreadedFileIOBase.func_75736_b(SourceFile:51)
+	at net.minecraft.world.storage.ThreadedFileIOBase.run(SourceFile:30)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+"Server Watchdog" Id=28 RUNNABLE
+	at sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:454)
+	at net.minecraft.server.dedicated.ServerHangWatchdog.run(ServerHangWatchdog.java:45)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+"Netty Server IO #0" Id=27 RUNNABLE (in native)
+	at sun.nio.ch.EPollArrayWrapper.epollWait(Native Method)
+	at sun.nio.ch.EPollArrayWrapper.poll(EPollArrayWrapper.java:269)
+	at sun.nio.ch.EPollSelectorImpl.doSelect(EPollSelectorImpl.java:93)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:86)
+	-  locked io.netty.channel.nio.SelectedSelectionKeySet@70e9f5e
+	-  locked java.util.Collections$UnmodifiableSet@74b4b105
+	-  locked sun.nio.ch.EPollSelectorImpl@2ff2f24c
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:97)
+	at io.netty.channel.nio.SelectedSelectionKeySetSelector.select(SelectedSelectionKeySetSelector.java:62)
+	at io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:732)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:388)
+	...
+
+
+"JLine terminal non blocking reader thread" Id=22 RUNNABLE (in native)
+	at java.io.FileInputStream.readBytes(Native Method)
+	at java.io.FileInputStream.read(FileInputStream.java:255)
+	at org.jline.utils.InputStreamReader.read(InputStreamReader.java:270)
+	-  locked java.io.FileInputStream@e098178
+	at org.jline.utils.InputStreamReader.read(InputStreamReader.java:200)
+	-  locked java.io.FileInputStream@e098178
+	at org.jline.utils.NonBlockingReader.run(NonBlockingReader.java:276)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+"Server console handler" Id=21 TIMED_WAITING on org.jline.utils.NonBlockingReader@7d8e0b88
+	at java.lang.Object.wait(Native Method)
+	-  waiting on org.jline.utils.NonBlockingReader@7d8e0b88
+	at org.jline.utils.NonBlockingReader.read(NonBlockingReader.java:174)
+	at org.jline.utils.NonBlockingReader.read(NonBlockingReader.java:113)
+	at org.jline.keymap.BindingReader.readCharacter(BindingReader.java:132)
+	at org.jline.keymap.BindingReader.readBinding(BindingReader.java:109)
+	at org.jline.keymap.BindingReader.readBinding(BindingReader.java:60)
+	at org.jline.reader.impl.LineReaderImpl.readBinding(LineReaderImpl.java:724)
+	at org.jline.reader.impl.LineReaderImpl.readLine(LineReaderImpl.java:526)
+	...
+
+
+"DestroyJavaVM" Id=20 RUNNABLE
+
+
+"Server thread" Id=18 RUNNABLE
+	at net.minecraft.world.World.func_175648_a(World.java:250)
+	at net.minecraft.world.World.func_180500_c(World.java:2860)
+	at net.minecraft.world.chunk.Chunk.func_76609_d(Chunk.java:339)
+	at net.minecraft.world.chunk.Chunk.func_76599_g(Chunk.java:325)
+	at net.minecraft.world.chunk.Chunk.func_150803_c(Chunk.java:297)
+	at net.minecraft.world.chunk.Chunk.func_177441_y(Chunk.java:1344)
+	at net.minecraft.world.chunk.Chunk.func_150809_p(Chunk.java:1327)
+	at net.minecraft.world.chunk.Chunk.func_150804_b(Chunk.java:1071)
+	...
+
+
+"Server Infinisleeper" Id=17 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at net.minecraft.server.dedicated.DedicatedServer$1.run(DedicatedServer.java:82)
+
+
+"Snooper Timer" Id=16 TIMED_WAITING on java.util.TaskQueue@2ce3b1a5
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.util.TaskQueue@2ce3b1a5
+	at java.util.TimerThread.mainLoop(Timer.java:552)
+	at java.util.TimerThread.run(Timer.java:505)
+
+
+"Signal Dispatcher" Id=4 RUNNABLE
+
+
+"Finalizer" Id=3 WAITING on java.lang.ref.ReferenceQueue$Lock@143b56e7
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@143b56e7
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:144)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:165)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:216)
+
+
+"Reference Handler" Id=2 WAITING on java.lang.ref.Reference$Lock@56fb1759
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.Reference$Lock@56fb1759
+	at java.lang.Object.wait(Object.java:502)
+	at java.lang.ref.Reference.tryHandlePending(Reference.java:191)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:153)
+
+
+
+Stacktrace:
+	at net.minecraft.server.dedicated.ServerHangWatchdog.run(ServerHangWatchdog.java:62)
+	at java.lang.Thread.run(Thread.java:748)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Linux (aarch64) version 5.3.0-1022-raspi2
+	Java Version: 1.8.0_242, Private Build
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Private Build
+	Memory: 118028712 bytes (112 MB) / 482344960 bytes (460 MB) up to 883949568 bytes (843 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 25, allocated: 0, tallocated: 0
+	FML: MCP 9.42 Powered by Forge 14.23.5.2847 7 mods loaded, 7 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State  | ID                | Version                  | Source                                        | Signature                                |
+	|:------ |:----------------- |:------------------------ |:--------------------------------------------- |:---------------------------------------- |
+	| LCHIJA | minecraft         | 1.12.2                   | minecraft.jar                                 | None                                     |
+	| LCHIJA | mcp               | 9.42                     | minecraft.jar                                 | None                                     |
+	| LCHIJA | FML               | 8.0.99.99                | forge-1.12.2-14.23.5.2847-universal.jar       | None                                     |
+	| LCHIJA | forge             | 14.23.5.2847             | forge-1.12.2-14.23.5.2847-universal.jar       | None                                     |
+	| LCHIJA | xaerominimap_core | 1.12.2-1.0               | minecraft.jar                                 | None                                     |
+	| LCHIJA | inventorytweaks   | 1.63+release.109.220f184 | InventoryTweaks-1.63.jar                      | 55d2cd4f5f0961410bf7b91ef6c6bf00a766dcbe |
+	| LCHIJA | twilightforest    | 3.10.1013                | twilightforest-1.12.2-3.10.1013-universal.jar | None                                     |
+
+	Loaded coremods (and transformers): 
+Inventory Tweaks Coremod (InventoryTweaks-1.63.jar)
+  invtweaks.forge.asm.ContainerTransformer
+LoadingPlugin (Xaeros_Minimap_20.7.1_Forge_1.12.jar)
+  xaero.common.core.transformer.ChunkTransformer
+  xaero.common.core.transformer.NetHandlerPlayClientTransformer
+	Profiler Position: N/A (disabled)
+	Player Count: 1 / 20; [EntityPlayerMP['Rika2'/146, l='world', x=-40.32, y=32.00, z=220.68]]
+	Is Modded: Definitely; Server brand changed to 'fml,forge'
+	Type: Dedicated Server (map_server.txt)
